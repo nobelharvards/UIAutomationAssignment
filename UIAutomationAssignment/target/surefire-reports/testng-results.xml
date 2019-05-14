@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="cucumberoptions.TestRunner" duration-ms="34139" started-at="2019-05-14T02:29:47Z" finished-at="2019-05-14T02:30:21Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:cucumberoptions.TestRunner@50f8360d]" name="runScenario" class="cucumber.api.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Command line test" duration-ms="34139" started-at="2019-05-14T02:29:47Z" finished-at="2019-05-14T02:30:21Z">
+      <class name="cucumberoptions.TestRunner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:cucumberoptions.TestRunner@50f8360d]" name="setUpClass" is-config="true" duration-ms="199" started-at="2019-05-14T02:29:47Z" finished-at="2019-05-14T02:29:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="runScenario(cucumber.api.testng.PickleEventWrapper, cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:cucumberoptions.TestRunner@50f8360d]" name="runScenario" duration-ms="33860" started-at="2019-05-14T02:29:47Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2019-05-14T02:30:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login and buy dress"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Register account and buy dress"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:cucumberoptions.TestRunner@50f8360d]" name="tearDownClass" is-config="true" duration-ms="11" started-at="2019-05-14T02:30:21Z" finished-at="2019-05-14T02:30:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- cucumberoptions.TestRunner -->
+    </test> <!-- Command line test -->
+  </suite> <!-- cucumberoptions.TestRunner -->
+</testng-results>
