@@ -19,7 +19,7 @@ public class OpenWebsite
 		
 		String url = p.getProperty("url");
 		String browser = p.getProperty("browser");
-		
+		// Change browser variable in data.properties to switch between Firefox and Chrome
 		if(browser.equals("chrome"))
 		{
 			System.setProperty("webdriver.chrome.driver","..\\..\\Downloads\\chromedriver.exe");
@@ -27,7 +27,7 @@ public class OpenWebsite
 			driver.get(url);
 		}
 		else if(browser.equals("firefox"))
-		{
+		{// Firefox has a "Could not be scrolled into view" error.
 			System.setProperty("webdriver.gecko.driver", "..\\..\\Downloads\\geckodriver.exe");
 			driver = new FirefoxDriver();
 			driver.get(url);

@@ -13,7 +13,7 @@ public class BuySummerDress
 	{
 		this.driver = driver;
 	}
-	By dresses 					= By.linkText("Dresses");
+	By dresses					= By.cssSelector("#block_top_menu > ul > li:nth-child(2) > a");
 	By summerDresses 			= By.cssSelector("#block_top_menu > ul > li:nth-child(2) > ul > li:nth-child(3) > a");
 	By sortBy 					= By.id("selectProductSort");
 	By blueSummerDress 			= By.id("color_20");
@@ -26,10 +26,14 @@ public class BuySummerDress
 	By checkoutSelectedColour 	= By.cssSelector("a[title = 'Product detail']");
 	By checkoutQuantity 		= By.cssSelector("span[class = 'quantity']");
 	
-	public Actions dresses()
+	public Actions dressesHover()
 	{
 		Actions dressHover = new Actions(driver);
 		return dressHover;
+	}
+	public WebElement dresses()
+	{
+		return driver.findElement(dresses);
 	}
 	public WebElement summerDresses()
 	{

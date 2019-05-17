@@ -8,7 +8,6 @@ import cucumber.api.junit.Cucumber;
 import java.io.IOException;
 
 import org.junit.runner.RunWith;
-import org.openqa.selenium.By;
 import org.testng.asserts.SoftAssert;
 
 import resources.OpenWebsite;
@@ -26,21 +25,23 @@ public class StepDefinition extends OpenWebsite
         System.out.println("Browser and page launched.");
     }
 
+	// Register scenario is commented out in BuyDress.feature to avoid making a million accounts
 	@When("^Register account with (.+) and (.+)$")
     public void register_account_with_and(String email, String password) throws InterruptedException
     {
     	Signup s = new Signup(driver);
     	s.signinLink().click();
-    	s.email().sendKeys("woohoo");
+    	s.email().sendKeys("woohoo");	// Replace "woohoo" with email parameter to make registration work.
     	s.submitEmail().click();
     	Thread.sleep(5000);
+    	// If email is invalid, print out error message.
     	if(s.errorMessage().isDisplayed())
     	{
     		System.out.println("Error message is displayed: " + s.errorMessage().getText());
     	}
     	
     	Thread.sleep(5000);
-    	
+    	// Stuff below will not work without replacing "woohoo" with email parameter above.
     	s.firstName().sendKeys("Bob");
     	s.lastName().sendKeys("the Builder");
     	s.password().sendKeys(password);
@@ -59,19 +60,25 @@ public class StepDefinition extends OpenWebsite
     public void buy_dress() throws InterruptedException
     {
         BuySummerDress bsd = new BuySummerDress(driver);
-        bsd.dresses().moveToElement(driver.findElement(By.cssSelector("#block_top_menu > ul > li:nth-child(2) > a"))).perform();
+        
+        // Hover over Dresses, then click on Summer Dresses
+        // Firefox has a "Could not be scrolled into view" error here.
+        bsd.dressesHover().moveToElement(bsd.dresses()).perform();
         Thread.sleep(500);
         bsd.summerDresses().click();
         
+        // Checking if Summer Dresses link worked
         SoftAssert sa = new SoftAssert();
         sa.assertTrue(driver.getTitle().equals("Summer Dresses - My Store"));
         System.out.println(driver.getTitle());
         
+        // Sort by menu does not work, loads forever
         //bsd.sortByDropdown().selectByVisibleText("Price: Lowest first");
         bsd.blueSummerDress().click();
         bsd.addCart().click();
         Thread.sleep(2000);
         
+        // Getting name, colour and quantity from add to cart panel for later checking
         String productName = bsd.productName();
         String selectedColour = bsd.selectedColour();
         String quantity = bsd.quantity();
@@ -83,6 +90,7 @@ public class StepDefinition extends OpenWebsite
         bsd.checkout().click();
         //Thread.sleep(5000);
         
+        // Getting name, colour and quantity from checkout page
         String checkoutProductName = bsd.checkoutProductName();
         String checkoutSelectedColour = bsd.checkoutSelectedColour();
         String checkoutQuantity = bsd.checkoutQuantity();
@@ -91,6 +99,7 @@ public class StepDefinition extends OpenWebsite
         					"\nSelected colour: " 	+ checkoutSelectedColour +
         					"\nQuantity: " 			+ checkoutQuantity);
         
+        // Asserting add to cart and checkout values are all the same
         sa.assertEquals(checkoutProductName, productName);
         sa.assertEquals(checkoutSelectedColour, selectedColour);
         sa.assertEquals(checkoutQuantity, quantity);
