@@ -29,6 +29,7 @@ public class BuySummerDress
 	public Actions dressesHover()
 	{
 		Actions dressHover = new Actions(driver);
+		dressHover.moveToElement(dresses());
 		return dressHover;
 	}
 	public WebElement dresses()

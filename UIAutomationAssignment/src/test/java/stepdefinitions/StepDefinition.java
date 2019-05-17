@@ -62,8 +62,8 @@ public class StepDefinition extends OpenWebsite
         BuySummerDress bsd = new BuySummerDress(driver);
         
         // Hover over Dresses, then click on Summer Dresses
-        // Firefox has a "Could not be scrolled into view" error here.
-        bsd.dressesHover().moveToElement(bsd.dresses()).perform();
+        // Firefox has a "Could not be scrolled into view" error with Dresses > Summer Dresses menu.
+        bsd.dressesHover().perform();
         Thread.sleep(500);
         bsd.summerDresses().click();
         
@@ -74,6 +74,7 @@ public class StepDefinition extends OpenWebsite
         
         // Sort by menu does not work, loads forever
         //bsd.sortByDropdown().selectByVisibleText("Price: Lowest first");
+        
         bsd.blueSummerDress().click();
         bsd.addCart().click();
         Thread.sleep(2000);

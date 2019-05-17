@@ -27,7 +27,7 @@ public class OpenWebsite
 			driver.get(url);
 		}
 		else if(browser.equals("firefox"))
-		{// Firefox has a "Could not be scrolled into view" error.
+		{// Firefox has a "Could not be scrolled into view" error with Dresses > Summer Dresses menu.
 			System.setProperty("webdriver.gecko.driver", "..\\..\\Downloads\\geckodriver.exe");
 			driver = new FirefoxDriver();
 			driver.get(url);
