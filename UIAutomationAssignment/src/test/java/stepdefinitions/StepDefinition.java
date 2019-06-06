@@ -107,6 +107,10 @@ public class StepDefinition extends OpenWebsite
         
         sa.assertAll();
         System.out.println("Dress bought.");
+	
+	Thread.sleep(5000);
+        driver.quit();
+	System.out.println("Quitting browser.");
     }
     @When("^Login with (.+) and (.+)$")
     public void login_with_and(String email, String password)
