@@ -3,11 +3,9 @@ package stepdefinitions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumber.api.java.en.Then;
-import cucumber.api.junit.Cucumber;
 
 import java.io.IOException;
 
-import org.junit.runner.RunWith;
 import org.testng.asserts.SoftAssert;
 
 import resources.OpenWebsite;
@@ -15,7 +13,6 @@ import pageobjects.Signup;
 import pageobjects.BuySummerDress;
 import pageobjects.Login;
 
-@RunWith(Cucumber.class)
 public class StepDefinition extends OpenWebsite
 {
 	@Given("^Initialise browser and navigate to website$")
@@ -107,10 +104,10 @@ public class StepDefinition extends OpenWebsite
         
         sa.assertAll();
         System.out.println("Dress bought.");
-	
-	Thread.sleep(5000);
+        
+        Thread.sleep(5000);
         driver.quit();
-	System.out.println("Quitting browser.");
+		System.out.println("Quitting browser.");
     }
     @When("^Login with (.+) and (.+)$")
     public void login_with_and(String email, String password)
